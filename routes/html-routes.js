@@ -45,31 +45,6 @@ module.exports = function(app, db) {
     res.render("index")
   })
 
-// gets the data for the items in grocery list for user and sends info back
-  app.get("/members/getgroceries2", isAuthenticated, function(req, res) {
-    db.User.findById(req.user.id)
-    .then(function(user) {
-      user.getGroceries()
-      .then(function(groceries) {
-        res.json(groceries);
-      });
-    });
-  });
-  
-  //updates the item to owned
-    app.put("/members/updategroceries", isAuthenticated, function(req, res) {
-      db.Grocery.update({
-        ownedItem: true
-      }, {
-        where: {
-          Id: parseInt(req.body.id)
-        }
-      }).then(function(){
-        res.end();
-      })
-    });
-
-
   app.get("/members/addgroceries", isAuthenticated, function(req, res) {
     // res.sendFile(path.join(__dirname, "../public/grocery.html"));
     res.render("grocery")

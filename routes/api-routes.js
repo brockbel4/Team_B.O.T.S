@@ -38,6 +38,30 @@ module.exports = function(app, db) {
     res.redirect("/");
   });
 
+  // gets the data for the items in grocery list for user and sends info back
+  app.get("/api/getgroceries", isAuthenticated, function(req, res) {
+    db.User.findById(req.user.id)
+    .then(function(user) {
+      user.getGroceries()
+      .then(function(groceries) {
+        res.json(groceries);
+      });
+    });
+  });
+  
+  //updates the item to owned
+    app.put("/api/updategroceries", isAuthenticated, function(req, res) {
+      db.Grocery.update({
+        ownedItem: true
+      }, {
+        where: {
+          Id: parseInt(req.body.id)
+        }
+      }).then(function(){
+        res.end();
+      })
+    });
+
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {
