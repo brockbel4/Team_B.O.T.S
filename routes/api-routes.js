@@ -62,6 +62,16 @@ module.exports = function(app, db) {
       })
     });
 
+    app.post("/api/delete_item", function(req, res) {
+      db.Grocery.destroy({
+        where: {
+          id: req.body.id
+        }
+      }).then(function(){
+        res.redirect("/members")
+      })
+    })
+
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {
