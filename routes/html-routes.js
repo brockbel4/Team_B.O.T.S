@@ -11,7 +11,8 @@ module.exports = function(app, db) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    // res.sendFile(path.join(__dirname, "../public/signup.html"));
+    res.render("signup");
   });
 
   app.get("/login", function(req, res) {
@@ -19,13 +20,15 @@ module.exports = function(app, db) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    // res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.render("login")
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+    // res.sendFile(path.join(__dirname, "../public/members.html"));
+    res.render("members")
   });
 
   app.get("/members/getgroceries", isAuthenticated, function(req, res) {
@@ -37,6 +40,10 @@ module.exports = function(app, db) {
       });
     });
   });
+
+  app.get("/" ,function(req,res){
+    res.render("index")
+  })
 
 // gets the data for the items in grocery list for user and sends info back
   app.get("/members/getgroceries2", isAuthenticated, function(req, res) {
@@ -64,7 +71,8 @@ module.exports = function(app, db) {
 
 
   app.get("/members/addgroceries", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/grocery.html"));
+    // res.sendFile(path.join(__dirname, "../public/grocery.html"));
+    res.render("grocery")
   });
   
   app.post("/members/addgroceries", isAuthenticated, function(req, res) {
