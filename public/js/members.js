@@ -1,17 +1,24 @@
 // get grocery items from databse, and sorts them in shlpping list or pantry
 $.get("/api/getgroceries").then(function (data) {
   for (var i = 0; i < data.length; i++) {
+    //put in shopping list
     if (!data[i].ownedItem) {
-      $("#groceriesToGet").append(`${data[i].foodProduct} <button class="addToPantry" data-id=${data[i].id}> Add To Pantry </button> <br>`);
+      $("#groceriesToGet").append(`${data[i].foodProduct} <button class="addToPantry" data-id=${data[i].id}> Add To Pantry </button>
+      <button class="deleteItem" data-id=${data[i].id}>delete </button> <br>`);
     }
     else {
       var today = moment().format();
+      //put in expired list
       if (today >= data[i].expirationDate) {
-        $("#groceriesExpired").append(`${data[i].foodProduct} <br>`);
-      } else if (today >= data[i].expirationNotification) {
-        $("#groceriesExpiringSoon").append(`${data[i].foodProduct} <br>`);
-      } else {
-        $("#groceriesOwned").append(`${data[i].foodProduct} <br>`);
+        $("#groceriesExpired").append(`${data[i].foodProduct}<button class="deleteItem" data-id=${data[i].id}>delete </button> <br>`);
+      }
+      // put in expiring soon list 
+      else if (today >= data[i].expirationNotification) {
+        $("#groceriesExpiringSoon").append(`${data[i].foodProduct} <button class="deleteItem" data-id=${data[i].id}>delete </button><br>`);
+      }
+      // put in pantry list
+      else {
+        $("#groceriesOwned").append(`${data[i].foodProduct}<button class="deleteItem" data-id=${data[i].id}>delete </button> <br>`);
       }
     }
   }
@@ -35,22 +42,42 @@ $(document).on('click', '.addToPantry', function () {
         $("#groceriesToGet").empty();
         $("#groceriesOwned").empty();
         for (var i = 0; i < data.length; i++) {
+          //put in shopping list
           if (!data[i].ownedItem) {
-            $("#groceriesToGet").append(`${data[i].foodProduct} <button class="addToPantry" data-id=${data[i].id}> Add To Pantry </button> <br>`);
+            $("#groceriesToGet").append(`${data[i].foodProduct} <button class="addToPantry" data-id=${data[i].id}> Add To Pantry </button>
+            <button class="deleteItem" data-id=${data[i].id}>delete </button> <br>`);
           }
           else {
             var today = moment().format();
+            //put in expired list
             if (today >= data[i].expirationDate) {
-              $("#groceriesExpired").append(`${data[i].foodProduct} <br>`);
-            } else if (today >= data[i].expirationNotification) {
-              $("#groceriesExpiringSoon").append(`${data[i].foodProduct} <br>`);
-            } else {
-              $("#groceriesOwned").append(`${data[i].foodProduct} <br>`);
+              $("#groceriesExpired").append(`${data[i].foodProduct} <button class="deleteItem" data-id=${data[i].id}>delete </button> <br>`);
+            }
+            // put in expiring soon list 
+            else if (today >= data[i].expirationNotification) {
+              $("#groceriesExpiringSoon").append(`${data[i].foodProduct} <button class="deleteItem" data-id=${data[i].id}>delete </button><br>`);
+            }
+            // put in pantry list
+            else {
+              $("#groceriesOwned").append(`${data[i].foodProduct}<button class="deleteItem" data-id=${data[i].id}>delete </button> <br>`);
             }
           }
         }
       });
     });
 });
+
+$(document).on('click', '.deleteItem', function () {
+  $.ajax("/api/delete_item", {
+    type: "POST",
+    data: { id: $(this).data("id") }
+  }).then(
+    function(){
+    location.reload();
+    })
+});
+
+
+
 
 
