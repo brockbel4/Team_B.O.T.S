@@ -76,6 +76,7 @@ module.exports = function(app, db) {
     db.Grocery.create({
       foodProduct: req.body.name,
       quantity: req.body.quantity,
+      quantityUnit: req.body.unit,
       expirationDate: req.body.date || null,
       expirationNotification: notification || null,
       ownedItem: req.body.owned,
