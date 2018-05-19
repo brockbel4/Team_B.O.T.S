@@ -59,6 +59,8 @@ h1 {
     text-shadow: none;
     margin: 4%;
     text-align: center;
+    min-height: 200%;
+    padding-bottom: 2%;
 
 }
 
@@ -136,7 +138,7 @@ h2 {
     height: 4.5em;
     padding-top: 1em;
     text-shadow: none;
-    position: absolute;
+    position: fixed;
     bottom: 0;  
     margin-top: 5%;
 }
