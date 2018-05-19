@@ -8,13 +8,12 @@
   <!-- jQuery -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-
-
   <!-- Moment.js -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="./css/style.css">
@@ -25,7 +24,7 @@
 
 </head>
 
-<body>
+<body class="body">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -39,7 +38,7 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h2>Welcome,
-          <span class="member-name"></span>
+          <span class="member-name"></span>!
         </h2>
       </div>
     </div>
@@ -89,8 +88,13 @@
 
   <div class="container">
     <div class="row">
+<<<<<<< HEAD:views/members.handlebars
       <div class="col-md-5 inventories Center">
         <div id="groceries">
+=======
+      <div class="col-md-5 inventories membersPage">
+        <div id="groceries" class="inventories">
+>>>>>>> taylorsbranch:public/members.html
           <h2>Groceries to Get</h2>
           <span id="groceriesToGet"></span>
           <br>
@@ -103,8 +107,13 @@
         </div>
       </div>
 
+<<<<<<< HEAD:views/members.handlebars
       <div class="col-md-5 inventories Center">
         <div id="inventory">
+=======
+      <div class="col-md-5 inventories membersPage">
+        <div id="inventory" class="inventories">
+>>>>>>> taylorsbranch:public/members.html
           <h2>Current Inventory</h2>
           <span id="groceriesOwned"></span>
           <br>
@@ -119,22 +128,29 @@
 
       <div class="container Center">
         <div class="row">
-          <div class="col-md-5 expire">
-            <div id="expiringSoon">
+          <div class="col-md-5 expire inventories membersPage">
+            <div id="expiringSoon" class="inventories">
               <h2>Expiring Soon</h2>
               <span id="groceriesExpiringSoon"></span>
               <br>
+              milk
               <br>
+              bread
               <br>
-              <br>
+              eggs
               <br>
               <br>
               <br>
             </div>
           </div>
 
+<<<<<<< HEAD:views/members.handlebars
           <div class="col-md-5 expire Center">
             <div id="expired">
+=======
+          <div class="col-md-5 expire inventories membersPage">
+            <div id="expired" class="inventories">
+>>>>>>> taylorsbranch:public/members.html
               <h2>Expired</h2>
               <span id="groceriesExpired"></span>
               <br>
