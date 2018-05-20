@@ -67,6 +67,15 @@ h1 {
     margin-left: 10%;
     text-align: left;
 }
+.addToPantry {
+    margin: 2%;
+    font-size: 70%;
+    font-family: Quicksand;
+    font-weight: bold;
+}
+#buttonApple {
+    background: transparent url('../images/apples.png') no-repeat top;
+}
 .btn {
     text-shadow: none;
     background-color: lightgray;
@@ -83,6 +92,7 @@ h1 {
     text-align: center;
     min-height: 200%;
     padding-bottom: 2%;
+    letter-spacing: 2px;
 
 }
 .add {
