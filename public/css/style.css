@@ -8,6 +8,14 @@ body {
     width: 100%;
     margin-bottom: 5%;
 }
+.membersbody{
+    background-image: url("../images/food.png");
+}
+.indexbody {
+    background-image: url("../images/background.png");
+    width: 100%;
+    margin-bottom: 5%;
+}
 
 [class*="col-"] {
     margin-top: 3%;
@@ -19,6 +27,17 @@ body {
     width: 80%;
     text-shadow: 2px 2px black;
 }
+.loginform {
+    margin-left: 8%;
+    max-width: 100%;
+}
+.loginbutton {
+    margin-right: 67%;
+    margin-bottom: 3%;
+}
+#signUpButton {
+    margin-top: 3%;
+}
 h1 {
     margin-top: 5%;
     font-size: 525%;
@@ -26,7 +45,10 @@ h1 {
 }
 #intro {
     margin-top: 5%;
+    margin-left: 8%;
+    margin-right: 8%;
     font-size: 140%;
+    display: flex;
     text-shadow: 2px 2px black;
 }
 .containerStyles {
@@ -90,6 +112,24 @@ h2 {
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
+}
+a{
+    color: lightgray;
+}
+.account {
+    margin-top: 5%;
+    display: block;
+    font-family: Quicksand;
+    padding-left: none;
+    margin-left: 25%;
+}
+.accountbutton{
+    display: block;
+    margin-left: 10%;
+}
+.goTo {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 @-webkit-keyframes Gradient {
@@ -203,4 +243,16 @@ h2 {
     padding-top: 1em;
     text-shadow: none;
     
+}
+@media only screen and (max-width: 768px) {
+    
+    #landing {
+        background-image: none;
+    }
+    .indexbody {
+        background-image: url("../images/food.png");
+    }
+    h1{
+        font-size: 400%;
+    }
 }
