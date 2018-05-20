@@ -75,14 +75,28 @@ h1 {
     font-family: Quicksand;
     font-weight: bold;
 }
+
+#trashcan {
+    width: 23%;
+    height: auto;
+    margin-left: 40%;
+
+}
+.iconText {
+    text-align: center;
+    color: white;
+    font-size: 110%;
+}
 .deleteItem{
     margin: 2%;
     font-size: 70%;
     font-family: Quicksand;
     font-weight: bold;
 }
-#buttonApple {
-    background: transparent url('../images/apples.png') no-repeat top;
+#appleButton {
+    background: transparent;
+    width: 25%;
+    height: auto;
 }
 .btn {
     text-shadow: none;
