@@ -68,6 +68,14 @@ h1 {
     text-align: left;
 }
 .addToPantry {
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 70%;
+    font-family: Quicksand;
+    font-weight: bold;
+}
+.deleteItem{
     margin: 2%;
     font-size: 70%;
     font-family: Quicksand;
@@ -265,6 +273,6 @@ a{
         background-image: url("../images/food.png");
     }
     h1{
-        font-size: 400%;
+        font-size: 300%;
     }
 }
