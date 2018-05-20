@@ -79,5 +79,16 @@ $(document).on('click', '.deleteItem', function () {
 
 
 
+$("#owned").change(function(event) {
+ console.log($(this).val())
+  if($(this).val() === "true"){
+    console.log("hi buddy")
+  } else{
+    $(".hide").css("display", "none");
+  }
+
+});         
+
+
 
 
