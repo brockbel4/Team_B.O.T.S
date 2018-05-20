@@ -4,21 +4,21 @@ $.get("/api/getgroceries").then(function (data) {
     //put in shopping list
     if (!data[i].ownedItem) {
       $("#groceriesToGet").append(`${data[i].foodProduct} <button class="addToPantry" data-id=${data[i].id}> Add To Pantry </button>
-      <button class="deleteItem" data-id=${data[i].id}>delete </button> <br>`);
+      <button class="deleteItem" data-id=${data[i].id}>Delete </button> <br>`);
     }
     else {
       var today = moment().format();
       //put in expired list
       if (today >= data[i].expirationDate) {
-        $("#groceriesExpired").append(`${data[i].foodProduct}<button class="deleteItem" data-id=${data[i].id}>delete </button> <br>`);
+        $("#groceriesExpired").append(`${data[i].foodProduct}<button class="deleteItem" data-id=${data[i].id}>Delete </button> <br>`);
       }
       // put in expiring soon list 
       else if (today >= data[i].expirationNotification) {
-        $("#groceriesExpiringSoon").append(`${data[i].foodProduct} <button class="deleteItem" data-id=${data[i].id}>delete </button><br>`);
+        $("#groceriesExpiringSoon").append(`${data[i].foodProduct} <button class="deleteItem" data-id=${data[i].id}>Delete </button><br>`);
       }
       // put in pantry list
       else {
-        $("#groceriesOwned").append(`${data[i].foodProduct}<button class="deleteItem" data-id=${data[i].id}>delete </button> <br>`);
+        $("#groceriesOwned").append(`${data[i].foodProduct}<button class="deleteItem" data-id=${data[i].id}>Delete </button> <br>`);
       }
     }
   }
@@ -45,21 +45,21 @@ $(document).on('click', '.addToPantry', function () {
           //put in shopping list
           if (!data[i].ownedItem) {
             $("#groceriesToGet").append(`${data[i].foodProduct} <button class="addToPantry" data-id=${data[i].id}> Add To Pantry </button>
-            <button class="deleteItem" data-id=${data[i].id}>delete </button> <br>`);
+            <button class="deleteItem" data-id=${data[i].id}>Delete </button> <br>`);
           }
           else {
             var today = moment().format();
             //put in expired list
             if (today >= data[i].expirationDate) {
-              $("#groceriesExpired").append(`${data[i].foodProduct} <button class="deleteItem" data-id=${data[i].id}>delete </button> <br>`);
+              $("#groceriesExpired").append(`${data[i].foodProduct} <button class="deleteItem" data-id=${data[i].id}>Delete </button> <br>`);
             }
             // put in expiring soon list 
             else if (today >= data[i].expirationNotification) {
-              $("#groceriesExpiringSoon").append(`${data[i].foodProduct} <button class="deleteItem" data-id=${data[i].id}>delete </button><br>`);
+              $("#groceriesExpiringSoon").append(`${data[i].foodProduct} <button class="deleteItem" data-id=${data[i].id}>Delete </button><br>`);
             }
             // put in pantry list
             else {
-              $("#groceriesOwned").append(`${data[i].foodProduct}<button class="deleteItem" data-id=${data[i].id}>delete </button> <br>`);
+              $("#groceriesOwned").append(`${data[i].foodProduct}<button class="deleteItem" data-id=${data[i].id}>Delete </button> <br>`);
             }
           }
         }

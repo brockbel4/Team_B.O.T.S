@@ -62,17 +62,25 @@
   </nav>
 
 
-  <div class="container">
+  <div class="container iconContainer">
     <div class="row">
 
-      <div class="col-md-12">
+      <div class="col-md-6">
         <!-- Button trigger modal -->
         <div id="appleContainer">
-         
+
+          <img src="/images/apple.png" id="appleButton" class="btn btn-primary add" data-toggle="modal" data-target="#exampleModal"> {{!--
           <button id="buttonApple" type="button" class="btn btn-primary add" data-toggle="modal" data-target="#exampleModal">
-            Click here to add items!
-          </button>
+            --}} {{!-- </button> --}}
+          <p class="iconText">Select the apple to add an item to your grocery list or inventory!</p>
         </div>
+      </div>
+      <div class="col-md-6">
+        <div id="trash">
+          <img src="/images/trash.png" id="trashcan" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+        </div>
+        <p class="iconText">Select and drag any item to the trashcan to delete it!</p>
       </div>
     </div>
 
@@ -90,15 +98,20 @@
                 <option value="true">Pantry</option>
                 <option value="false">Shopping List</option>
               </select>
-              <br><label for= "name" >Name</label>
+              <br>
+              <label for="name">Name</label>
               <input type="text" name="name" id="name">
-              <br> <label for="quantity"> Quantity:</label>
+              <br>
+              <label for="quantity"> Quantity:</label>
               <input type="number" name="quantity" id="quantity">
-              <br> <label for = "unit">Unit Type (Cup, oz, etc):</label>
+              <br>
+              <label for="unit">Unit Type (Cup, oz, etc):</label>
               <input type="text" name="unit" id="unit">
-              <br> <label for="expiration" class="hide"> Expiration Date:</label>
+              <br>
+              <label for="expiration" class="hide"> Expiration Date:</label>
               <input id="date" type="date" name="date" id="expiration" class="hide">
-              <br> <label for= "notification" class="hide" >Expiration Notification Date: </label>
+              <br>
+              <label for="notification" class="hide">Expiration Notification Date: </label>
               <input type="date" name="notification" id="notification" class="hide">
 
               <input type="submit">
@@ -152,10 +165,6 @@
     </div>
   </div>
 
-  <div id="trash">
-    <img src="/images/trash.png" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-  </div>
 
   <div id="footerContainer">
     <div id="footer">

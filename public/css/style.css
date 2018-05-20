@@ -68,13 +68,35 @@ h1 {
     text-align: left;
 }
 .addToPantry {
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 70%;
+    font-family: Quicksand;
+    font-weight: bold;
+}
+
+#trashcan {
+    width: 23%;
+    height: auto;
+    margin-left: 40%;
+
+}
+.iconText {
+    text-align: center;
+    color: white;
+    font-size: 110%;
+}
+.deleteItem{
     margin: 2%;
     font-size: 70%;
     font-family: Quicksand;
     font-weight: bold;
 }
-#buttonApple {
-    background: transparent url('../images/apples.png') no-repeat top;
+#appleButton {
+    background: transparent;
+    width: 25%;
+    height: auto;
 }
 .btn {
     text-shadow: none;
@@ -265,6 +287,6 @@ a{
         background-image: url("../images/food.png");
     }
     h1{
-        font-size: 400%;
+        font-size: 300%;
     }
 }
