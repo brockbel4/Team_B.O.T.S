@@ -5,8 +5,8 @@ function renderPage() {
     for (var i = 0; i < data.length; i++) {
       //put in shopping list
       if (!data[i].ownedItem) {
-        $("#groceriesToGet").append(`${data[i].foodProduct} <button class="addToPantry" data-id=${data[i].id}> Add To Pantry </button>
-      <button class="deleteItem" data-id=${data[i].id}>Delete </button> <br>`);
+        $("#groceriesToGet").append(`<span id= "${data[i].id}"> ${data[i].foodProduct} <button class="addToPantry" data-id=${data[i].id}> Add To Pantry </button>
+      <button class="deleteItem" data-id=${data[i].id}>Delete </button> </span> <br>`);
       }
       else {
         var today = moment().format();
@@ -29,9 +29,7 @@ function renderPage() {
 
 renderPage();
 
-
-// This file just does a GET request to figure out which user is logged in
-// and updates the HTML on the page
+// get username and displays it
 $.get("/api/user_data").then(function (data) {
   $(".member-name").text(data.email);
 });
@@ -43,9 +41,12 @@ $(document).on('click', '.addToPantry', function () {
   $(".hide2").css("display", "none");
 })
 
+//takes input from update modal, updated grocery item
+// renders page once again with item in new category
 $("#updateButton").on("click", function (event) {
-  // event.preventDefault();
-  // console.log( $("#updateExpiration").val(), $("#updateNotification").val() );
+  event.preventDefault();
+  hideId = $("#itemId").val();
+  $(".hideMe2").empty();
   $.ajax("/api/updategroceries2", {
     type: "PUT",
     data: {
@@ -54,23 +55,25 @@ $("#updateButton").on("click", function (event) {
       updatedNotification: $("#updateNotification").val()
     }
   }).then(function () {
-
+    $('#updateModal').modal('hide');
+    renderPage();
   })
 })
 
-
+// deletes item and then renders page
 $(document).on('click', '.deleteItem', function () {
   $.ajax("/api/delete_item", {
     type: "POST",
     data: { id: $(this).data("id") }
   }).then(
     function () {
-      location.reload();
+      $(".hideMe2").empty();
+      renderPage()
     })
 });
 
 
-
+//changes modal based on shopping list or pantry entry
 $("#owned").change(function (event) {
   console.log($(this).val())
   if ($(this).val() === "true") {
