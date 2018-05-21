@@ -62,6 +62,21 @@ module.exports = function(app, db) {
       })
     });
 
+  //updates the item to owned and adds expiration dates
+    app.put("/api/updategroceries2", isAuthenticated, function(req, res) {
+      db.Grocery.update({
+        ownedItem: true,
+        expirationDate: req.body.updatedExpiration,
+        expirationNotification: req.body.updatedNotification
+      }, {
+        where: {
+          Id: parseInt(req.body.id)
+        }
+      }).then(function(){
+        res.end();
+      })
+    });
+
     app.post("/api/delete_item", function(req, res) {
       db.Grocery.destroy({
         where: {

@@ -124,20 +124,46 @@
   </div>
 
 
+  <!-- Modal 2 -->
+  <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <form>
+            <strong>Add Expiration Date</strong>
+            <br>
+            <label for="itemId" class="hide2">Unit Type (Cup, oz, etc):</label>
+            <input type="text" name="itemId" id="itemId" class="hide2">
+            <br>
+            <label for="updateExpiration"> Expiration Date:</label>
+            <input id="updateExpiration" type="date" name="date">
+            <br>
+            <label for="updateNotification" class="hide">Expiration Notification Date: </label>
+            <input type="date" name="notification" id="updateNotification" class="hide">
+            <br>
+            <input type="submit" id="updateButton">
+            <br>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
   <div class="container">
     <div class="row">
       <div class="col-md-5 inventories membersPage">
         <div id="groceries">
           <h2>Groceries to Get</h2>
-          <span id="groceriesToGet" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></span>
-
+          <span id="groceriesToGet" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" class="hideMe2"></span>
         </div>
       </div>
 
       <div class="col-md-5 inventories membersPage">
         <div id="inventory">
           <h2>Current Inventory</h2>
-          <span id="groceriesOwned" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></span>
+            <span id="groceriesOwned" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" class="hideMe2"></span>
 
         </div>
       </div>
@@ -147,16 +173,16 @@
           <div class="col-md-5 expire inventories membersPage">
             <div id="expiringSoon">
               <h2>Expiring Soon</h2>
-              <span id="groceriesExpiringSoon" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></span>
-
-            </div>
+                <span id="groceriesExpiringSoon" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"
+                  class="hideMe2"></span>
+              </div>
           </div>
 
           <div class="col-md-5 expire inventories membersPage">
             <div id="expired">
               <h2>Expired</h2>
-              <span id="groceriesExpired" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></span>
-
+                 <span id="groceriesExpired" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"
+                  class="hideMe2"></span>
             </div>
           </div>
         </div>
